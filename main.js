@@ -28,7 +28,8 @@ let countries = []
           const region = document.createElement('span')
           const capital = document.createElement('span')
           flagImageContainer.dataset.name = country.name.official
-          flagContainer.id=country.name.common
+          nameId = country.name.common.replace(/\s+/g, '');
+          flagContainer.id= nameId
         
         
           countryName.innerText = country.name.common
