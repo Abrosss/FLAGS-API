@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <title>FLAGS</title>
+
+
+</head>
+<body>
+  <script>
+    const theme = localStorage.getItem('darkMode') || null;
+    if(theme=='enabled') document.body.classList.add('darkmode')
+    else  document.body.classList.remove('darkmode')
+   </script>
+  <header>
+    <h1><a href="/">Where in the world?</a></h1>
+    <div>
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+
+        <defs>
+        </defs>
+        <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+          <path d="M 87.823 60.7 c -0.463 -0.423 -1.142 -0.506 -1.695 -0.214 c -15.834 8.398 -35.266 2.812 -44.232 -12.718 c -8.966 -15.53 -4.09 -35.149 11.101 -44.665 c 0.531 -0.332 0.796 -0.963 0.661 -1.574 c -0.134 -0.612 -0.638 -1.074 -1.259 -1.153 c -9.843 -1.265 -19.59 0.692 -28.193 5.66 C 13.8 12.041 6.356 21.743 3.246 33.35 S 1.732 57.08 7.741 67.487 c 6.008 10.407 15.709 17.851 27.316 20.961 C 38.933 89.486 42.866 90 46.774 90 c 7.795 0 15.489 -2.044 22.42 -6.046 c 8.601 -4.966 15.171 -12.43 18.997 -21.586 C 88.433 61.79 88.285 61.123 87.823 60.7 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: currentColor; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+        </g>
+        </svg>
+      <span id="darkmode">Dark Mode</span>
+    </div>
+  </header>
+  <main>
+    <section class="searchContainer">
+      <form>
+        <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
+          <g>
+            <path fill = "currentColor" d="m495,466.1l-119.2-119.2c29.1-35.5 46.5-80.8 46.5-130.3 0-113.5-92.1-205.6-205.6-205.6-113.6,0-205.7,92.1-205.7,205.7s92.1,205.7 205.7,205.7c49.4,0 94.8-17.4 130.3-46.5l119.1,119.1c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9zm-443.2-249.4c-1.42109e-14-91 73.8-164.8 164.8-164.8 91,0 164.8,73.8 164.8,164.8s-73.8,164.8-164.8,164.8c-91,0-164.8-73.8-164.8-164.8z"/>
+          </g>
+        </svg>
+        <input id="search" type="text" autocomplete="off" placeholder="Search for a country...">
+        <svg id="clearButton" class="icon" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" fill-rule="evenodd" d="M8,16 C12.4183,16 16,12.4183 16,8 C16,3.58172 12.4183,0 8,0 C3.58172,0 0,3.58172 0,8 C0,12.4183 3.58172,16 8,16 Z M4.29289,4.29289 C4.68342,3.90237 5.31658,3.90237 5.70711,4.29289 L8,6.58579 L10.2929,4.29289 C10.6834,3.90237 11.3166,3.90237 11.7071,4.29289 C12.0976,4.68342 12.0976,5.31658 11.7071,5.70711 L9.41421,8 L11.7071,10.2929 C12.0976,10.6834 12.0976,11.3166 11.7071,11.7071 C11.3166,12.0976 10.6834,12.0976 10.2929,11.7071 L8,9.41421 L5.70711,11.7071 C5.31658,12.0976 4.68342,12.0976 4.29289,11.7071 C3.90237,11.3166 3.90237,10.6834 4.29289,10.2929 L6.58579,8 L4.29289,5.70711 C3.90237,5.31658 3.90237,4.68342 4.29289,4.29289 Z"/>
+        </svg>
+        
+      </form>
+      <div id="dropdownMenu" ><div class="dropdownButton"><span class="dropdownButton">Filter by Region </span>
+        <svg class="dropdownButton" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+        <title>arrow-down</title>
+        <desc>Created with sketchtool.</desc>
+        <g id="directional" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+            <g id="arrow-down" fill="currentColor">
+                <polygon id="Shape" points="6 7 12 13 18 7 20 9 12 17 4 9"></polygon>
+            </g>
+        </g>
+    </svg>
+  </div>
+        <ul id="dropdown" class="dropdownList">
+          <li class="option">Africa</li>
+          <li class="option">America</li>
+          <li class="option">Asia</li>
+          <li class="option">Europe</li>
+          <li class="option">Oceania</li>
+        </ul>
+      </div>
+      
+    </section>
+    <section id="flags">
+     
+    </section>
+    <section id="flagDetails">
+      <a href="#"><span id="backButton"  ><svg width="24px" height="24px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.3287 11.0002V13.0002L7.50042 13.0002L10.7429 16.2428L9.32873 17.657L3.67188 12.0001L9.32873 6.34326L10.7429 7.75747L7.50019 11.0002L20.3287 11.0002Z" fill="currentColor"/>
+        </svg>
+         Back</span></a>
+      <section id="countryContainer">
+        <section id="flagCountry"></section>
+        <section id="countryDescription">
+          <h2 class="countryName">Belgium</h2>
+          <div class="countryDetails">
+            <div>
+              <span>Native Name: Belgie</span>
+              <span>Population:</span>
+              <span>Population:</span>
+              <span>Population:</span>
+              <span>Population:</span>
+            </div>
+            <div>
+              <span>Population:</span>
+              <span>Population:</span>
+              <span>Population:</span>
+            </div>
+          </div>
+          <div id="borders">
+            <span>Border Countries:</span> 
+            
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+@import "./colors";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+body {
+    height: 100%;
+    background-color: $very-dark-blue-darkmode;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    padding: 1.5rem 5rem;
+    background-color: $dark-blue;
+    color: white;
+
+    h1{
+        font-size: 1.3rem;
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+    
+    div {
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        width: min-content;
+        min-width: 10rem;
+        justify-content: flex-end;
+        
+        #darkmode {
+            cursor: pointer;
+            }
+        }
+    }
+    .icon {
+        width: 10%;
+        height: min-content;
+    }
+
+main {
+    padding: 2.5rem 5rem;
+    height: 90%;
+    background-color: $very-dark-blue-darkmode;
+    position: relative;
+    .searchContainer {
+       
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        form {
+            width: 30%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 1.5rem;
+            padding-right: .5rem;
+            background-color: $dark-blue;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 50px 1px;
+            input {
+                color: white;
+                border-radius: 5px;
+                flex: 1;
+                padding: .8rem 1rem;
+                background-color: $dark-blue;
+                border: none;
+                outline: none;
+                caret-color: white;
+                &::placeholder {
+                    color:white
+                }
+            }
+            .icon {
+                width: 5%;
+                color: white;
+                opacity: .8;
+
+            }
+            #clearButton {
+                cursor: pointer;
+                opacity: .8;
+            }
+        }
+        #dropdownMenu {
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 1px;
+            background-color: $dark-blue;
+            outline: none;
+            color: white;
+            border-color: transparent;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+            min-width: 14rem;
+            
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 3rem;
+                svg {
+                    color: white;
+                    opacity: .9;
+                }
+    
+            }
+          
+           #dropdown{
+            display: none;
+            border-radius: 5px;
+            width: 100%;
+            position: absolute;
+            background-color: $dark-blue;
+            left: 0;
+            margin-top: 2rem;
+            z-index: 100;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 1px;
+            padding: 1rem 1.5rem;
+           }
+           #dropdown.show {
+            display: block;
+           }
+            .option {
+                
+                text-decoration: none;
+                list-style-type: none;
+                border: none;
+                margin-bottom: .5rem;
+                line-height: 2;
+                &:hover {
+                    color: white;
+                    background-color: $very-dark-blue-darkmode;
+                }
+             
+            }
+            .option:last-child {
+                margin-bottom: 0 
+            }
+        }
+    }
+    #flags {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem;
+        padding: 2.5rem 0;
+        width: 100%;
+        height: 100%;
+        .flagContainer {
+            z-index: 1000;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 50px 1px;
+            
+          cursor: pointer;
+            .flag {
+                border-radius: 5px 5px 0 0;
+                min-height: 11rem;
+                background-position: center center;
+                background-size: cover;
+                color: white;
+            }
+
+                h4 {
+                    margin-bottom: 1.2rem;
+                }
+              
+            
+            .country {
+                border-radius: 0 0 5px 5px;
+                color: white;
+                background-color: $dark-blue;
+                padding: 2rem 1.5rem;
+                padding-bottom: 3rem;
+               div {
+                display: flex;
+                flex-direction: column;
+                font-size: .9rem;
+                gap: .5rem;
+                .smallDetail {
+                    color: $dark-gray;
+                }
+               }
+            }
+        &:hover {
+            scale: 1.01;
+            transition: scale .2s ease-in-out;
+        }
+        }
+    }
+    #flagDetails {
+        display: none;
+        height: 90%;
+        
+        flex-direction: column;
+        gap: 4rem;
+        a {
+            text-decoration: none;
+            
+            #backButton {
+                display: flex;
+                min-width: min-content;
+                gap: .5rem;
+                text-decoration: none;
+                color: white;
+                padding: .5rem 2rem;
+                width: min-content;
+                border-radius: 5px;
+                background-color: $dark-blue;
+                user-select: none;
+                align-items: center;
+                svg {
+                    color: white;
+                }
+            }
+        }
+        
+        #flagCountry {
+            border-radius: 5px 5px 0 0;
+            min-height: 30rem;
+            max-height: 30rem;
+            background-position: center center;
+            background-size: cover;
+            color: white;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 1px;
+         
+        }
+       
+        #countryContainer {
+        
+            color: white;
+            display: flex;
+            gap: 5rem;
+            width: 100%;
+            height: min-content;
+            section {
+                min-width: 50%;
+            }
+            
+            #countryDescription {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 3.5rem 2rem;
+                justify-content: space-between;
+                .countryDetails {
+                            display: flex;
+                            width: 100%;
+                        
+                            div {
+                                width: 50%;
+                                min-width: 15rem;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 1rem;
+                                height: min-content;
+                                span {
+                                    display: flex;
+                                    gap: .5em;
+                                    font-weight: 600;
+                                    opacity: .9;
+                                    flex: 1;
+                                      
+                                    position: relative;
+                                    min-width: 18rem
+                                       
+                                    }
+                                }
+                                .smallDetail {
+                                    width: min-content;
+                                   min-width: 7rem;
+                                   color: white;
+                                   opacity: .8;
+                                   font-weight: 400;
+                                }
+                            }
+                          
+                            
+            }
+            #borders {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+                span{
+                    font-size: 1.1rem;
+                    font-weight: 800;
+                }
+                a {
+                    text-align: center;
+                    color: white;
+                    width: min-content;
+    
+                    padding: .5rem .3rem;
+                    text-decoration: none;
+                    background-color: $dark-blue;
+                    min-width: 9rem;
+                    cursor: pointer;
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 5px 1px;
+                }
+            }
+        }
+    
+    }
+}
+
+
+.darkmode {
+    background-color: white;
+}
+.darkmode header {
+    background-color: white;
+    color: black;
+    a{
+        color: black;
+    }
+    .icon {
+        color: black;
+
+    }
+}
+.darkmode main {
+    background-color: white;
+    form {
+        background-color: white;
+        box-shadow: rgba(60, 64, 67, 0.2) 0px 1px 10px 1px;
+        input {
+            color: black;
+            background-color: white;
+            caret-color: black;
+            &::placeholder {
+                color: black;
+            }
+        }
+        .icon {
+            color: black;
+        }
+    }
+    #dropdownMenu {
+        background-color: white;
+        color: black;
+        box-shadow: rgba(60, 64, 67, 0.2) 0px 1px 10px 1px;
+        div{
+      
+            svg {
+                color: black;
+               
+            }
+
+        }
+        #dropdown {
+            background-color: white;
+            color: black; 
+            box-shadow: rgba(60, 64, 67, 0.2) 0px 1px 10px 1px;
+        }
+    }
+    #flags {
+        .country {
+            background-color: white;
+            color: black;
+        }
+        .flagContainer {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 10px 50px 1px;
+        }
+    }
+}
+.darkmode 
+main {
+    #flagDetails {
+        a{
+            #backButton {
+                background-color: white;
+                color: black;
+                box-shadow: rgba(162, 142, 142, 0.3) 0px 1px 5px 1px;
+            svg {
+                color: black
+            }
+            }
+        }
+   
+    #countryContainer {
+        #flagCountry {
+            box-shadow: rgba(162, 142, 142, 0.1) 0px 1px 25px 1px;
+        }
+        #countryDescription {
+        .countryName {
+            color: black;
+        }
+        .countryDetails {
+            color: black;
+            div {
+                .smallDetail {
+                    color: black;
+                   
+                }
+            }
+        }
+        #borders {
+            span {
+                color: black;
+            }
+            .border {
+                background-color: white;
+                color: black;
+                box-shadow: rgba(162, 142, 142, 0.3) 0px 1px 5px 1px;
+            }
+           
+        }
+    }
+}
+    }
+}
+
+
+    // .icon {
+    //     display: inline-block;
+    //     background-repeat: no-repeat;
+    //     background-position: center center;
+    //   }
+
+    // .darkmode {
+    //     background-image: url(/images/dark-mode-6682.svg);
+    //     width: 256px;
+    //     height: 256px;
+    // }
+
+
+@media (max-width: 700px) {
+    header {
+        padding: 2rem 1rem;
+        h1 {
+            font-size: 1.1rem;
+        }
+        div {
+            font-size: .9rem;
+        }
+    }
+   main {
+    padding: 0 1rem;
+    .searchContainer {
+        margin-top: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+        form {
+            width: 100%;
+        }
+
+    }
+    #flags {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+       
+    }
+    #flagDetails {
+        margin-top: 2rem;
+        #countryContainer {
+            flex-direction: column;
+            gap: 3rem;
+            #flagCountry {
+                min-height: 16rem;
+                border-radius: 0;
+            }
+            #countryDescription {
+                padding: 0;
+                .countryDetails {
+                    flex-direction: column;
+                    gap: 2rem;
+                   
+                }
+                #borders {
+                    span {
+                        display: block;
+                        width: 100%;
+                    }
+                    
+                }
+            }
+            
+        }
+    }
+   }
+   }
+   @media (min-width: 700px) and (max-width: 1000px) {
+    header {
+        padding: 2rem 1rem;
+        h1 {
+            font-size: 1.1rem;
+        }
+        div {
+            font-size: .9rem;
+        }
+    }
+   main {
+    padding: 0 5rem;
+    .searchContainer {
+        margin-top: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+        form {
+            width: 100%;
+        }
+
+    }
+    #flags {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        .flagContainer {
+            .flag {
+                min-height: 20rem;
+            }
+        }
+       
+    }
+    #flagDetails {
+        margin-top: 2rem;
+        #countryContainer {
+            flex-direction: column;
+            gap: 3rem;
+            #flagCountry {
+                min-height: 25rem;
+                border-radius: 0;
+            }
+            #countryDescription {
+                padding: 0;
+                .countryDetails {
+                    flex-direction: column;
+                    gap: 2rem;
+                   
+                }
+                #borders {
+                    span {
+                        display: block;
+                        width: 100%;
+                    }
+                    
+                }
+            }
+            
+        }
+    }
+   }
+   }
