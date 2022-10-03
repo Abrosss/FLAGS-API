@@ -41,11 +41,10 @@ header {
             }
         }
     }
-    .icon {
+.icon {
         width: 10%;
         height: min-content;
     }
-
 main {
     padding: 2.5rem 5rem;
     height: 90%;
@@ -313,8 +312,6 @@ main {
     
     }
 }
-
-
 .darkmode {
     background-color: white;
 }
@@ -374,7 +371,6 @@ main {
         }
     }
 }
-.darkmode 
 main {
     #flagDetails {
         a{
@@ -420,20 +416,6 @@ main {
 }
     }
 }
-
-
-    // .icon {
-    //     display: inline-block;
-    //     background-repeat: no-repeat;
-    //     background-position: center center;
-    //   }
-
-    // .darkmode {
-    //     background-image: url(/images/dark-mode-6682.svg);
-    //     width: 256px;
-    //     height: 256px;
-    // }
-
 
 @media (max-width: 700px) {
     header {
@@ -491,7 +473,7 @@ main {
     }
    }
    }
-   @media (min-width: 700px) and (max-width: 1000px) {
+@media (min-width: 700px) and (max-width: 1000px) {
     header {
         padding: 2rem 1rem;
         h1 {

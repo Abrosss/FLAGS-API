@@ -16,10 +16,7 @@ let countries = []
         function htmlFlags(country) {
           document.body.height='100%'
           const flags = document.querySelector('#flags')
-        
           const flagContainer = document.createElement('section')
-         
-          flagContainer.addEventListener('click', openCountry)
           const flagImageContainer = document.createElement('div')
           const countryContainer = document.createElement('div')
           const countryName = document.createElement('h4')
@@ -28,10 +25,8 @@ let countries = []
           const region = document.createElement('span')
           const capital = document.createElement('span')
           flagImageContainer.dataset.name = country.name.official
-          nameId = country.name.common.replace(/\s+/g, '');
+          let nameId = country.name.common.replace(/\s+/g, '');
           flagContainer.id= nameId
-        
-        
           countryName.innerText = country.name.common
           population.innerHTML = `Population: <span class="smallDetail">${country.population}</span>`
           region.innerHTML = `Region: <span class="smallDetail">${country.region}</span>`
@@ -39,7 +34,6 @@ let countries = []
           flagContainer.classList.add('flagContainer')
           flagImageContainer.classList.add('flag')
           countryContainer.classList.add('country')
-        
           flagImageContainer.style.backgroundImage=`url(${country.flags.svg})`
           countryContainer.appendChild(countryName)
           countryContainer.appendChild(detailsContainer)
@@ -49,6 +43,8 @@ let countries = []
           flagContainer.appendChild(flagImageContainer)
           flagContainer.appendChild(countryContainer)
           flags.appendChild(flagContainer)
+
+          flagContainer.addEventListener('click', openCountry)
         }
         function openCountry(e) {
           window.location.href= '#' + e.target.dataset.name
@@ -67,23 +63,14 @@ let countries = []
        let country = data[0]
        console.log(country)
        document.querySelector('#flagCountry').style.backgroundImage=`url(${country.flags.svg})`
-      flags.style.display='none'
+      
+       flags.style.display='none'
       searchContainer.style.display='none'
       flagDetails.style.display='flex'
       
       countryName.innerText = country.name.common
       let native = country.name.nativeName
-      let languages = country.languages
-      
       const nativeName = native[Object.keys(native)[0]].common
-      
-      document.querySelector('#backButton').addEventListener('click', () => {
-        document.querySelector('#backButton').href = '#' + country.name.common
-        flags.style.display='grid'
-      searchContainer.style.display='flex'
-      flagDetails.style.display='none'
-      document.body.style.height='100%'
-      })
       
       countryDetails.innerHTML = `<div><span>Native Name: <span class="smallDetail">${nativeName || country.name.nativeName}</span></span><span>Population: <span class="smallDetail">${country.population}</span></span><span>Region: <span class="smallDetail">${country.region}</span> </span><span>Sub Region: <span class="smallDetail">${country.subregion}</span></span><span>Capital: <span class="smallDetail">${country.capital[0]}</span></span></div><div><span>Top Level Domain: <span class="smallDetail">${country.tld[0]}</span></span><span>Currencies: <span class="smallDetail">${country.currencies[Object.keys(country.currencies)].name}</span></span><span>Languages: <span class="smallDetail">${Object.values(country.languages).join(',')}</span></span></div>`
       const span = document.createElement('span')
@@ -115,7 +102,13 @@ let countries = []
        
        
       })
-      
+      document.querySelector('#backButton').addEventListener('click', () => {
+        document.querySelector('#backButton').href = '#' + country.name.common
+        flags.style.display='grid'
+      searchContainer.style.display='flex'
+      flagDetails.style.display='none'
+      document.body.style.height='100%'
+      })
         })
       
       .catch(err => {if(err) console.log(err)})
